@@ -2,11 +2,14 @@
 
 2) Download ActiveMQ RAR(http://mvnrepository.com/artifact/org.apache.activemq/activemq-rar/5.12.2)
 
-3) Start ActiveMQ (http://activemq.apache.org/getting-started.html)
+3.0) Start ActiveMQ (http://activemq.apache.org/getting-started.html)
 ```
 cd [activemq_install_dir]/bin
 ./activemq console
 ```
+
+3.1) ActiveMQ Web UI available at http://localhost:8161/admin
+
 4.0) copy activemq-rar-5.12.2.rar to wildfly-8.2.0.Final/standalone/deployments/
 
 4.1) Configure WildFly (http://www.mastertheboss.com/jboss-server/jboss-jms/integrate-activemq-with-wildfly)
