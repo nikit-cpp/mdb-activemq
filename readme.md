@@ -72,6 +72,7 @@ add
 ```
 			<mdb>
                 <resource-adapter-ref resource-adapter-name="activemq"/>
+                <bean-instance-pool-ref pool-name="mdb-strict-max-pool"/>
             </mdb>
 ```
 
