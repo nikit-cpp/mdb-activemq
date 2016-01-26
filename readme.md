@@ -12,7 +12,7 @@ cd [activemq_install_dir]/bin
 4.1) Configure WildFly (http://www.mastertheboss.com/jboss-server/jboss-jms/integrate-activemq-with-wildfly)
 
 add to standalone.xml (no need standalone-full.xml)
-'''
+```
 		<subsystem xmlns="urn:jboss:domain:resource-adapters:2.0">
             <resource-adapters>
                 <resource-adapter id="activemq">
@@ -57,7 +57,7 @@ add to standalone.xml (no need standalone-full.xml)
                 </resource-adapter>
             </resource-adapters>
         </subsystem>
-'''
+```
 
 4.2) to 
 
