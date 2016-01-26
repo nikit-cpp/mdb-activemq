@@ -8,7 +8,7 @@ cd [activemq_install_dir]/bin
 ./activemq console
 ```
 
-3.1) ActiveMQ Web UI available at http://localhost:8161/admin
+3.1) ActiveMQ Web UI available at (http://localhost:8161/admin)
 
 4.0) copy activemq-rar-5.12.2.rar to wildfly-8.2.0.Final/standalone/deployments/
 
