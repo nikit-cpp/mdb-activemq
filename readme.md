@@ -13,6 +13,15 @@ For Windows you can use [git bash](https://git-for-windows.github.io/) or [MSYS2
 
 3.1) ActiveMQ Web UI available at (http://127.0.0.1:8161/admin)
 
+3.2) For prevent conflict with another brockers, RabbitMQ for example, recommend to disable or change port
+```
+<transportConnector name="amqp"
+```
+in 
+```
+apache-activemq-5.12.2/conf/activemq.xml
+```
+
 4.0) copy activemq-rar-5.12.2.rar to wildfly-8.2.0.Final/standalone/deployments/
 
 4.1) Configure WildFly (http://www.mastertheboss.com/jboss-server/jboss-jms/integrate-activemq-with-wildfly)
