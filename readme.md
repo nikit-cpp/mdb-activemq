@@ -99,7 +99,7 @@ gradle clean build
 
 8) 
 ```
-curl http://127.0.0.1:8080/mdb-activemq-1.0/jms
+curl http://127.0.0.1:8080/mdb-activemq/app/jms
 ```
 ... and watch WildFly log
 

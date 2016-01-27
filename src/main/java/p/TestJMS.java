@@ -4,17 +4,17 @@ package p;
  * Created by nik on 27.01.16.
  */
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.annotation.Resource;
+import javax.ejb.Stateless;
 import javax.jms.*;
-import javax.naming.Context;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.Response;
 
 
-@WebServlet("/jms")
-public class TestJMS extends HttpServlet {
+@Stateless
+@Path("/")
+public class TestJMS {
 
     @Resource(lookup = "java:/ConnectionFactory")
     ConnectionFactory cf;
@@ -22,17 +22,19 @@ public class TestJMS extends HttpServlet {
     @Resource(lookup = "java:jboss/activemq/queue/TestQueue")
     private Queue queue;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @GET
+    @Path("/jms")
+    public Response doGet() throws IOException {
 
         try {
             example();
-            PrintWriter out = response.getWriter();
-            out.println("Message sent!");
+
+            return Response.ok("Message sent!").build();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        return Response.serverError().build();
     }
 
     public void example() throws Exception     {
@@ -47,39 +49,18 @@ public class TestJMS extends HttpServlet {
 
             TextMessage message = session.createTextMessage("Hello!");
             publisher.send(message);
-        }
-
-        finally
-        {
-            if(connection != null)
-            {
-                try  {
-                    connection.close();
-                }
-                catch(Exception e) {
-                    throw e;
-                }
-
-            }
+        } finally {
             closeConnection(connection);
         }
 
     }
     private void closeConnection(Connection con)            {
         try  {
-
             if (con != null) {
                 con.close();
             }
-
-        }
-
-        catch(JMSException jmse) {
-
+        } catch(JMSException jmse) {
             System.out.println("Could not close connection " + con +" exception was " + jmse);
-
         }
-
     }
-
 }
