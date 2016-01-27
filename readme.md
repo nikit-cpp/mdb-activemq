@@ -90,4 +90,4 @@ curl http://127.0.0.1:8080/mdb-activemq-1.0/jms
 ... and watch WildFly log
 
 #Links
-Also interest article about WildFly 9 + MactveMQ, but modules (http://blog.coffeebeans.at/?p=988)
+Also interest article about WildFly 9 + ActiveMQ, but modules (http://blog.coffeebeans.at/?p=988)
