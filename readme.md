@@ -91,6 +91,9 @@ add
 5) start WildFly
 
 6) build war
+```
+gradle clean build
+```
 
 7) deploy war
 
