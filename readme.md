@@ -101,6 +101,11 @@ gradle clean build
 ```
 curl http://127.0.0.1:8080/mdb-activemq/app/jms
 ```
+
+or you can send message directly from Web UU
+
+http://127.0.0.1:8161/admin/send.jsp?JMSDestination=activemq%2fqueue%2fTestQueue&JMSDestinationType=queue
+
 ... and watch WildFly log
 
 #Links
