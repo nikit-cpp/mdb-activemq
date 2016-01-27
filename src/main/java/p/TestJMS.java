@@ -27,7 +27,7 @@ public class TestJMS {
     public Response doGet() throws IOException {
 
         try {
-            example();
+            sendTextMessage("Hello!");
 
             return Response.ok("Message sent!").build();
 
@@ -37,30 +37,16 @@ public class TestJMS {
         return Response.serverError().build();
     }
 
-    public void example() throws Exception     {
-
-        Connection connection =  null;
-        try {
-            connection = cf.createConnection();
-            Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            MessageProducer publisher = session.createProducer(queue);
-
+    private void sendTextMessage(String msg) throws Exception {
+        try (
+                Connection connection = cf.createConnection();
+                Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+                MessageProducer publisher = session.createProducer(queue);
+        ) {
             connection.start();
 
-            TextMessage message = session.createTextMessage("Hello!");
+            TextMessage message = session.createTextMessage(msg);
             publisher.send(message);
-        } finally {
-            closeConnection(connection);
-        }
-
-    }
-    private void closeConnection(Connection con)            {
-        try  {
-            if (con != null) {
-                con.close();
-            }
-        } catch(JMSException jmse) {
-            System.out.println("Could not close connection " + con +" exception was " + jmse);
         }
     }
 }
