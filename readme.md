@@ -1,3 +1,4 @@
+# WildFly 8.2.0 + ActiveMQ 5.12.2
 1) Download and unzip WildFly 8.2.0 and ActiveMQ 5.12.2 (https://archive.apache.org/dist/activemq/5.12.2/)
 
 2) Download ActiveMQ RAR(http://mvnrepository.com/artifact/org.apache.activemq/activemq-rar/5.12.2)
@@ -87,3 +88,6 @@ add
 curl http://127.0.0.1:8080/mdb-activemq-1.0/jms
 ```
 ... and watch WildFly log
+
+#Links
+Also interest article about WildFly 9 + MactveMQ, but modules (http://blog.coffeebeans.at/?p=988)
